@@ -149,7 +149,8 @@ public class ImportTaskTable extends GeoServerTablePanel<ImportTask> {
                         try {
                             ImporterWebUtils.importer().changed(itemModel.getObject());
                         } catch (IOException e) {
-                            throw new RuntimeException(e);
+                            error(e);
+                            return false;
                         }
                         target.add(ImportTaskTable.this);
                         return true;
